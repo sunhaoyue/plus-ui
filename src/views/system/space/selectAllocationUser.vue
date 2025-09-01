@@ -86,17 +86,10 @@
   </el-row>
 </template>
 
-<script setup name="SelectUser" lang="ts">
+<script setup name="SelectAllocationUser" lang="ts">
 import { authUserSelectAll, unallocatedUserList } from "@/api/system/role";
 import { UserVO } from "@/api/system/user/types";
 import { UserQuery } from "@/api/system/user/types";
-
-const props = defineProps({
-  roleId: {
-    type: [Number, String],
-    required: true,
-  },
-});
 
 const { proxy } = getCurrentInstance() as ComponentInternalInstance;
 const { sys_normal_disable } = toRefs<any>(proxy?.useDict("sys_normal_disable"));
@@ -118,7 +111,7 @@ const tableRef = ref<ElTableInstance>();
 const queryFormRef = ref<ElFormInstance>();
 
 const show = () => {
-  queryParams.roleId = props.roleId;
+  //queryParams.roleId = props.roleId;
   getList();
   visible.value = true;
 };
